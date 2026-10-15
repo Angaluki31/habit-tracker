@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1% Better - Habit Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>1% better every day</h1>
+    <p class="compound">
+      Small daily wins add up. Your growth score:
+      <strong id="growthScore">1.00</strong>x
+    </p>
+  </header>
+
+  <main>
+    <!-- STEP 1: add habits -->
+    <section class="card" id="addSection">
+      <h2>Add a habit</h2>
+      <form id="habitForm">
+        <label>
+          Habit
+          <input type="text" id="habitName" placeholder="e.g. Practice coding" required>
+        </label>
+
+        <label>
+          Time
+          <input type="time" id="habitTime" required>
+        </label>
+
+        <fieldset>
+          <legend>Days</legend>
+          <div class="days">
+            <label><input type="checkbox" value="1"> Mon</label>
+            <label><input type="checkbox" value="2"> Tue</label>
+            <label><input type="checkbox" value="3"> Wed</label>
+            <label><input type="checkbox" value="4"> Thu</label>
+            <label><input type="checkbox" value="5"> Fri</label>
+            <label><input type="checkbox" value="6"> Sat</label>
+            <label><input type="checkbox" value="0"> Sun</label>
+          </div>
+          <button type="button" id="everyDay" class="link-btn">Select every day</button>
+        </fieldset>
+
+        <p id="formError" class="error" role="alert"></p>
+        <button type="submit" class="primary">Save habit</button>
+      </form>
+    </section>
+
+    <!-- STEP 2: today's habits -->
+    <section class="card">
+      <h2>Today <span id="todayDate"></span></h2>
+      <ul id="todayList" class="habit-list"></ul>
+      <p id="emptyToday" class="empty">No habits scheduled for today. Add one above.</p>
+    </section>
+
+    <!-- STEP 3: summary + streak + progress -->
+    <section class="card summary">
+      <h2>Your day</h2>
+      <p class="big"><span id="doneCount">0</span> of <span id="totalCount">0</span> habits done</p>
+      <div class="bar" aria-label="Today's progress">
+        <div class="bar-fill" id="todayBar"></div>
+      </div>
+      <p id="dayMessage" class="message"></p>
+
+      <div class="streak">
+        <span id="streakCount">0</span>
+        <span>day streak</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Your improvement</h2>
+      <p class="hint">Percentage of habits completed over the last 7 days.</p>
+      <div id="weekChart" class="week"></div>
+      <p id="weekAverage" class="message"></p>
+    </section>
+
+    <!-- all habits (manage / delete) -->
+    <section class="card">
+      <h2>All my habits</h2>
+      <ul id="allHabits" class="all-habits"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
